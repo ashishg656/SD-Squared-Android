@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/z_margin_small"
-    android:background="@drawable/list_shadow_bg"
+    android:background="@drawable/shadow_list_item"
     android:orientation="vertical"
     android:paddingBottom="@dimen/z_margin_large">
 
