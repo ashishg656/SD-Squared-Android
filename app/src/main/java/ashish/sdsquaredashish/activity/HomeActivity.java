@@ -3,7 +3,6 @@ package ashish.sdsquaredashish.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
 import com.android.volley.VolleyError;
 
@@ -28,9 +27,6 @@ public class HomeActivity extends BaseActivity implements AppRequestListener {
     @BindView(R.id.home_recycler)
     RecyclerView recyclerView;
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-
     int start, pageSize = 10;
     HomeListAdapter adapter;
     LinearLayoutManager layoutManager;
@@ -39,7 +35,7 @@ public class HomeActivity extends BaseActivity implements AppRequestListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_activity_layout);
+        setContentView(R.layout.home_activity);
         ButterKnife.bind(this);
 
         layoutManager = new LinearLayoutManager(this);
@@ -115,6 +111,7 @@ public class HomeActivity extends BaseActivity implements AppRequestListener {
                 adapter.addData(mData.getData().getUsers(), isMoreAllowed);
             } else {
                 adapter = new HomeListAdapter(this, mData.getData().getUsers(), isMoreAllowed);
+                recyclerView.setAdapter(adapter);
             }
         }
     }
