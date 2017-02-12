@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SDSquared Ashish</string>
+    
+    <string name="unable_to_load_more">Unable to load more data.</string>
 </resources>

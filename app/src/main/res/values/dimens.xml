@@ -2,7 +2,7 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
-    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="toolbar_height">?attr/actionBarSize</dimen>
 
     <!--margins-->
     <dimen name="z_margin_supermini">2dp</dimen>
@@ -25,4 +25,7 @@
     <!-- navigation drawer -->
     <dimen name="z_drawer_header_top_padding">56dp</dimen>
     <dimen name="z_drawer_profile_image_height">64dp</dimen>
+
+    <!-- home list-->
+    <dimen name="home_user_image_radius">60dp</dimen>
 </resources>

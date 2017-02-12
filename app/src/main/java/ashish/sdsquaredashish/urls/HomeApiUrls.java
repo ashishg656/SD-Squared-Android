@@ -6,7 +6,7 @@ package ashish.sdsquaredashish.urls;
 
 public class HomeApiUrls extends AppUrls {
 
-    public static String getHomeApiUrl() {
-        return BASE_URL + "";
+    public static String getHomeApiUrl(int start, int pageSize) {
+        return BASE_URL + "users?offset=" + start + "&limit=" + pageSize;
     }
 }

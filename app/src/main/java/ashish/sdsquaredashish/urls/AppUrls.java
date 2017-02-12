@@ -5,5 +5,5 @@ package ashish.sdsquaredashish.urls;
  */
 public class AppUrls {
 
-    public static final String BASE_URL = "http://54.89.223.47:7777/"; // production
+    public static final String BASE_URL = "http://sd2-hiring.herokuapp.com/api/";
 }
