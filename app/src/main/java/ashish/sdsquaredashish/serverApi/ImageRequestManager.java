@@ -10,6 +10,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
+import ashish.sdsquaredashish.R;
+
 public class ImageRequestManager {
 
     static ImageRequestManager mInstance;
@@ -25,14 +27,19 @@ public class ImageRequestManager {
         if (imageView == null) {
             return;
         } else if (imgUrl == null || imgUrl.length() == 0) {
-//            imageView.setImageResource(R.drawable.symphony);
+            try {
+                imageView.setImageResource(R.drawable.placeholder);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
             return;
         }
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .resetViewBeforeLoading(true).cacheInMemory(true)
                 .cacheOnDisk(true).imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-//                .showImageOnLoading(R.drawable.symphony)
+                .showImageOnLoading(R.drawable.placeholder)
+                .showImageOnFail(R.drawable.error_image)
                 .bitmapConfig(Bitmap.Config.ARGB_8888).build();
 
         ImageLoader.getInstance().displayImage(imgUrl, imageView, options,
@@ -59,14 +66,14 @@ public class ImageRequestManager {
         if (imageView == null) {
             return;
         } else if (imgUrl == null || imgUrl.length() == 0) {
-//            imageView.setImageResource(R.drawable.symphony);
+            imageView.setImageResource(R.drawable.placeholder);
             return;
         }
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .resetViewBeforeLoading(true).cacheInMemory(true)
                 .cacheOnDisk(true).imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-//                .showImageOnLoading(R.drawable.symphony)
+                .showImageOnLoading(R.drawable.placeholder)
                 .bitmapConfig(Bitmap.Config.ARGB_8888).build();
 
         ImageLoader.getInstance().displayImage(imgUrl, imageView, options,

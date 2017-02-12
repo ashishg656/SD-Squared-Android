@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.wefika.flowlayout.FlowLayout;
@@ -107,6 +108,14 @@ public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     setGridImages(user.getItems().subList(1, user.getItems().size()));
                 }
             }
+
+            if (itemImage.getVisibility() == View.VISIBLE) {
+                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) itemImage.getLayoutParams();
+                int width = UIUtils.getDeviceWidth(context) - 4 * marginForImageView;
+                params.width = width;
+                params.height = width;
+                itemImage.setLayoutParams(params);
+            }
         }
 
         private void setGridImages(List<String> strings) {
@@ -122,6 +131,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     params.leftMargin = marginForImageView;
                     params.rightMargin = 0;
                 }
+                params.bottomMargin = 2 * marginForImageView;
 
                 int width = (UIUtils.getDeviceWidth(context) - 6 * marginForImageView) / 2;
                 params.width = width;
