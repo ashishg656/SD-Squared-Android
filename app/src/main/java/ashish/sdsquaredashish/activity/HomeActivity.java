@@ -113,7 +113,7 @@ public class HomeActivity extends BaseActivity implements AppRequestListener {
     private void setData(HomeApiResponseObject mData) {
         hideErrorLayout();
         hideProgressLayout();
-        
+
         if (mData == null || !mData.getStatus() || mData.getData() == null || mData.getData().getUsers() == null) {
             // show empty layout
             isMoreAllowed = false;

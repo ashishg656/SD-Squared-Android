@@ -61,6 +61,15 @@ public class ImageRequestManager {
                 });
     }
 
+    public static void stopLoading() {
+        try {
+            ImageLoader.getInstance().stop();
+            ImageLoader.getInstance().destroy();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void requestImageWithCallbacks(final Context context, final ImageView imageView,
                                                  final String imgUrl, final RequestBitmap requestBitmap) {
         if (imageView == null) {
