@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.android.volley.VolleyError;
 
@@ -23,7 +24,7 @@ import butterknife.ButterKnife;
  * Created by Ashish on 12/02/17.
  */
 
-public class HomeActivity extends BaseActivity implements AppRequestListener {
+public class HomeActivity extends BaseActivity implements AppRequestListener, View.OnClickListener {
 
     @BindView(R.id.home_recycler)
     RecyclerView recyclerView;
@@ -40,6 +41,8 @@ public class HomeActivity extends BaseActivity implements AppRequestListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity_layout);
         ButterKnife.bind(this);
+
+        setProgressAndErrorLayoutVariables();
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -63,7 +66,7 @@ public class HomeActivity extends BaseActivity implements AppRequestListener {
             }
         });
 
-        setProgressAndErrorLayoutVariables();
+        retryButton.setOnClickListener(this);
 
         loadData();
     }
@@ -127,6 +130,15 @@ public class HomeActivity extends BaseActivity implements AppRequestListener {
                 adapter = new HomeListAdapter(this, mData.getData().getUsers(), isMoreAllowed);
                 recyclerView.setAdapter(adapter);
             }
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.button_error:
+                loadData();
+                break;
         }
     }
 }
